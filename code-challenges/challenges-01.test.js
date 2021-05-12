@@ -10,7 +10,6 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 
 const addOne = (arr) => {
   // Solution code here...
-  console.log(arr);
   const numberArray = [];
   arr.forEach((item) => {
     let i = item+1;
@@ -30,10 +29,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
-  console.log(arr);
   const exclamationArray = [];
   arr.forEach((item) => {
-    let i = item+'!';
+    let i = item + '!';
     exclamationArray.push(i);
   });
   return exclamationArray;
@@ -50,7 +48,6 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
-  console.log(arr);
   const upperCaseArray = [];
   arr.forEach((item) => {
     let i = item.toUpperCase();
@@ -73,22 +70,22 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 const greeting = (word) => {
   // Solution code here...
   console.log(word);
-  const greetingArray = [];
-  word.forEach((item) => {
-    let i = item.toUpperCase() + '!';
-    greetingArray.push(i);
-  });
-  return greetingArray;
+  const wordUpperCase = word.UpperCase();
+  const wordExclamationPoint = wordUpperCase + '!';
+  return wordExclamationPoint;
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
-  console.log(words,callback);
-  const speakerArray = [words, callback];
-  words.forEach((item) => {
-
-  }
+  const newWordArray = []; 
+  words.forEach(item => {
+  // console.log(words,callback);
+    const newString = callback(item);
+    newWordArray.push(newString);
+  })
+  return newWordArray;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -108,10 +105,16 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  const numberArray = []; 
+  for ( let s = 0; s < times; s ++) {
+    callback(num, arr);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,9 +139,9 @@ const createList = (availableItems) => {
   // Solution code here...
   console.log(availableItems);
   const storeInventory = [];
-  availableItems.forEach((item) => {
+  availableItems.forEach(item => {
     let i = item.inventory;
-    storeInventory.push(i);
+    storeInventory.push(item.name);
   })
   return storeInventory;
 };
@@ -159,6 +162,7 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -218,5 +222,4 @@ xdescribe('Testing challenge 7', () => {
   test('It should print out messages or numbers', () => {
     expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
     expect(fizzbuzz(inputs).length).toStrictEqual(16);
-  });
-});
+  }
