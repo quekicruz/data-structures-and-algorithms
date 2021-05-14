@@ -11,8 +11,8 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 const addOne = (arr) => {
   // Solution code here...
   const numberArray = [];
-  arr.forEach((item) => {
-    let i = item+1;
+  arr.forEach(item => {
+    let i = item + 1;
     numberArray.push(i);
   });
   return numberArray;
@@ -30,7 +30,7 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 const addExclamation = (arr) => {
   // Solution code here...
   const exclamationArray = [];
-  arr.forEach((item) => {
+  arr.forEach(item => {
     let i = item + '!';
     exclamationArray.push(i);
   });
@@ -49,7 +49,7 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 const allUpperCase = (arr) => {
   // Solution code here...
   const upperCaseArray = [];
-  arr.forEach((item) => {
+  arr.forEach(item => {
     let i = item.toUpperCase();
     upperCaseArray.push(i);
   });
@@ -70,19 +70,19 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 const greeting = (word) => {
   // Solution code here...
   console.log(word);
-  const wordUpperCase = word.UpperCase();
+  const wordUpperCase = word.toUpperCase();
   const wordExclamationPoint = wordUpperCase + '!';
   return wordExclamationPoint;
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
-  const newWordArray = []; 
+  const newWordArray = [];
   words.forEach(item => {
   // console.log(words,callback);
     const newString = callback(item);
     newWordArray.push(newString);
-  })
+  });
   return newWordArray;
 };
 
@@ -110,7 +110,7 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  const numberArray = []; 
+  const newArray = [];
   for ( let s = 0; s < times; s ++) {
     callback(num, arr);
   }
@@ -140,9 +140,9 @@ const createList = (availableItems) => {
   console.log(availableItems);
   const storeInventory = [];
   availableItems.forEach(item => {
-    let i = item.inventory;
-    storeInventory.push(item.name);
-  })
+    if(item.available) { storeInventory.push(item.name);
+    }
+  });
   return storeInventory;
 };
 
@@ -216,10 +216,9 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
-  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+// xdescribe('Testing challenge 7', () => {
+//   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
-  test('It should print out messages or numbers', () => {
-    expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
-    expect(fizzbuzz(inputs).length).toStrictEqual(16);
-  }
+//   test('It should print out messages or numbers', () => {
+//     expect(fizzbuzz(inputs)).toStrictEqual([1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16]);
+//     expect(fizzbuzz(inputs).length).toStrictEqual(16);
