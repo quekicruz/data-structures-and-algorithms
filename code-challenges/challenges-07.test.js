@@ -28,12 +28,9 @@ const sortStarWarsCharacters = (starWarsArr) => {
   // Solution code here...
   return starWarsArr.sort((a,b) => {
     if(a.height > b.height) {
-      return -1;
-    } else if(a.height < b.height){
-      return 1;
-    }else {
-      return 0 ;
+      return b.height - a.height;
     }
+    return false;
   });
 };
 
@@ -44,8 +41,8 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 const removeThree = (idx, arr) => {
   // Solution code here...
-  const newArray = arr.splice(idx,3);
-  return newArray;
+  arr.splice(idx,3);
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +53,8 @@ Write a function named joinArray that takes an array and joins all of the elemen
 
 const joinArray = (arr) => {
   // Solution code here...
-  return arr.join(' ');
+  let bigStringArray=  arr.join(' ');
+  return bigStringArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
